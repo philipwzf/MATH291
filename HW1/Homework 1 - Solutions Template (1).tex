@@ -1,0 +1,219 @@
+\documentclass[11pt,letterpaper,cm]{nupset}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm,amscd,graphicx,wasysym,enumerate}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\mb}[1]{\boldsymbol{#1}}
+\newcommand{\bvec}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% info for header block in upper right hand corner
+\name{Solutions}
+\class{Math 291-3}
+\assignment{Homework 1}
+\duedate{April 8, 2022}
+
+\begin{document}
+
+\begin{problem}[Exercise 1] It is often possible to determine whether an invertible symmetric matrix is positive definite, negative definite, or indefinite without explicitly computing the eigenvalues of the matrix.  Let $A\in M_{n\times n}(\mathbb{R})$.  We define the \textbf{trace} of $A$, ${\rm tr}(A)$, to be ${\rm tr}(A)\stackrel{def}{=} a_{11}+a_{22}+\cdots+a_{nn}$ (that is, the sum of the entries along the main diagonal of $A$).
+	\begin{itemize}
+		\item[(a)] Suppose that $A$ is diagonalizable, and let $\lambda_1,\ldots,\lambda_n$ be the eigenvalues of $A$ (repeated according to algebraic multiplicity). Show that $${\rm det}(A)=\lambda_1\lambda_2\cdots \lambda_n\quad\mbox{and}\quad {\rm tr}(A)=\lambda_1+\lambda_2+\cdots+\lambda_n.$$
+		
+		(Hint: This is similar to a result that you proved that quarter in discussion for complex matrices. Here, first show that you can factor the characteristic polynomial $p(\lambda)$ of $A$ into first-order factors.)
+		\item[(b)] Determine whether each of the invertible matrices $\bmat{3 & 2\\ 2 & 2}$ and $\bmat{6 & 4\\ 4 & 2}$ are positive definite, negative definite, or indefinite without explicitly computing their eigenvalues.
+		\medskip
+		
+		(Suggestion: If the eigenvalues of each matrix are $\lambda_1$ and $\lambda_2$, use part (a) to determine whether both eigenvalues are positive, both negative, or one is positive and one is negative.)
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)] Since $A$ is diagonalizable, there exixts diagonal matrix $D$ with the entries being all of the eigenvalues, and invertible matrix $S$ such that $A=SDS^{-1}$. Then,
+		$$det(A)=det(SDS^{-1})=det(S)det(D)det(S^{-1})=det(D)$$
+		Let $\lambda_1,\ldots,\lambda_n$ be the eigenvalues for $A$. Then,
+		$$det(A)=det(D)=\lambda_1\cdots\lambda_n$$
+		Now, we will show that $tr(A)=\lambda_1+\cdots+\lambda_n$. Consider the characteristic polynomial $det(A-\lambda I)$, by the result from discussion last quarter, the coefficient on $\lambda^{n-1}$ in $p(\lambda)$ is $(-1)^{n-1}(a_{11}+\cdots+a_{nn})$.\\
+		At the same time, since we know that $\lambda_1,\ldots,\lambda_n$ are all the solutions to $p(\lambda)$, we can write $p(\lambda)$ as 
+		$$p(\lambda)=(-1)^c(\lambda-\lambda_1)\cdots(\lambda-\lambda_n)$$ where $c\in\mathbb{Z}$. Since we know that the coeficient on $\lambda^n$ in $p(\lambda)$ is $(-1)^n$, so $c=n$.
+		Then the coefficient on $\lambda^{n-1}$ is 
+		$$-1^{c}(-\lambda_1-\cdots-\lambda_n)=-1^{c+1}(\lambda_1+\cdots+\lambda_n)=-1^{n+1}(\lambda_1+\cdots+\lambda_n)$$
+		Since the coefficient on $\lambda^{n-1}$ is unique, and since $n+1$ and $n-1$ has the same parity, so $\lambda_1+\cdots+\lambda_n=a_{11}+\cdots+a_{nn}$
+		\item[(b)] We have
+		$$det(\bmat{3 & 2\\2 & 2})=3\times2-2\times2=2,tr(\bmat{3 & 2\\2 & 2})=3+2=5$$
+		By part (a), we know that $\lambda_1+\lambda_2=5,\lambda_1\lambda_2=2$. Since the product is positive, so the two eigenvalues must have the same sign. And since the sum is positive, so both eigenvalues must be positive. So the matrix is positive definite.\\
+		Similarly we have
+		$$det(\bmat{6 & 4\\4 & 2})=6\times2-4\times4=-4,tr(\bmat{6 & 4\\4 & 2})=6+2=8$$
+		By part (a), we know that $\lambda_1+\lambda_2=8,\lambda_1\lambda_2=-4$. Since the product is negative, so the two eigenvalues must have different signs. So the matrix is indefinite.\\
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 2] Determine the absolute minimum and maximum values of the function $f:\mathbb{R}^2\to\mathbb{R}$, $f(x,y)\stackrel{def}{=}2x^2-2xy+y^2-y+3$ on the closed triangular region with vertices $(0,0)$, $(2,0)$, and $(0,2)$.
+\end{problem}
+\begin{solution}
+	Let $E$ be the triangular region enclosed by $(0,0),(2,0),(0,2)$.\\
+	1. We will first determine the critical points of $f$:
+	$$\bmat{0 & 0}=\bmat{f_x(x,y) & f_y(x,y)}=\bmat{4x-2y & -2x+2y-1}\Rightarrow (x,y)=(\frac{1}{2},1)$$
+	Since $(\frac{1}{2},1)\in E$, we need to check 
+	$$f(\frac{1}{2},1)=\frac{1}{2}-1+1-1+3=\frac{5}{2}$$
+	2. We will now check $\partial E$.\\
+		\hspace*{5mm} $1^0$ On $y=0,x\in [0,2]$. Define $g(x)\stackrel{def}{=} f(x,0)=2x^2+3$. Then, 
+		$$0=g'(x)=4x\Rightarrow x=0\in [0,2]$$ 
+		or the other end point $(2,0)$.\\
+		\hspace*{5mm} $2^0$ On $x=0,y\in [0,2]$. Define $h(x)\stackrel{def}{=} f(0,y)=y^2-y+3$. Then, $$0=h'(x)=2y-1\Rightarrow y=\frac{1}{2}\in [0,2]$$
+		or the end points $(0,0),(0,2)$.\\
+		\hspace*{5mm} $3^0$ On $x+y-2=0,x\in [0,2]$. Define 
+		$$l(t)\stackrel{def}{=} f(t,-t+2)=2t^2-2t(-t+2)+(t-2)^2+t-2+3=5t^2-7t+5$$ Then, 
+		$$0=l'(t)=10t-7\Rightarrow t=\frac{7}{10}\in [0,2]$$ 
+		or the end points $(0,2),(2,0)$.\\
+	
+	So, we need to test $f$ at $(0,0),(0,\frac{1}{2}),(0,2),(\frac{7}{10},\frac{13}{10}),(\frac{1}{2},1),(2,0)$.\\
+	$$f(0,0)=3,f(0,\frac{1}{2})=\frac{11}{4},f(0,2)=5,f(\frac{7}{10},\frac{13}{10})=\frac{51}{20},f(\frac{1}{2},1)=\frac{5}{2},f(2,0)=11$$
+	So, the global maximum of $f$ is $11$ at $(2,0)$. The global minimum is $\frac{5}{2}$ at $(\frac{1}{2},1)$.
+
+
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 3] (Colley 4.2.53(b)) Define $f:\mathbb{R}^2\to\mathbb{R}$ by $f(x,y)\stackrel{def}{=} 2-(xy^2-y-1)^2-(y^2-1)^2$.  Show that $f$ has exactly two critical points, and that both of them are local maxima.
+\end{problem}
+\begin{solution}
+	pf: Since $f$ is $C^1$ on $\mathbb{R}^2$ (because it is polynomial), (x,y) is a critical point of $f$ exacrly when
+	$$\bmat{0 & 0}=Df(x,y)=\bmat{f_x(x,y) & f_y(x,y)}=\bmat{-2(xy^2-y-1)y^2 & -2(xy^2-y-1)(2xy-1)-2(y^2-1)2y}$$
+	So, either $xy^2-y-1=0$ or $y^2=0$.\\
+	1. If $xy^2-y-1=0$, then $-2(xy^2-y-1)(2xy-1)=0$, so $(y^2-1)2y=0$. Then, $y=-1,0,1$.\\
+	\hspace*{5mm} $1^0$ If $y=-1,$ then $x=0$.\\
+	\hspace*{5mm} $2^0$ If $y=0,$ then $-1=0$. Contradiction!\\
+	\hspace*{5mm} $3^0$ If $y=1,$ then $x=2$.\\
+	2. If $y^2=0$, then $y=0$. Then $(-2)(-1)(-1)=0$. Contradiction!\\
+	Thus, the two critical point are $(0,-1),(2,1)$. Now, we'll show that they are both maximas.
+	$$D^2f(x,y)=\bmat{f_{xx} & f_{xy}\\f_{yx} & f_{yy}}=\bmat{-2y^4 & -2(2xy-1)y^2-4y(xy^2-y-1)\\-2(2xy-1)y^2-4y(xy^2-y-1) & -2(2xy-1)^2-4x(xy^2-y-1)-8y^2-4(y^2-1)}$$
+	So, 
+	$$D^2f(0,-1)=\bmat{-2 & 2\\2 & -2-8}=\bmat{-2 & 2\\2 & -10}$$
+	Then, the trace is -12, while the determinant is 16. So both of the eigenvalues are negative, $f$ has a local maxima at $(0,-1)$.
+	$$D^2f(2,1)=\bmat{-2 & -6\\-6 & -18-8}=\bmat{-2 & -6\\-6 & -26}$$
+	Then, the trace is -28, while the determinant is 16. So both of the eigenvalues are negative, $f$ has a local maxima at $(2,1)$.
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 4] (Colley 4.3.28) Heron's formula for the area of a triangle whose sides have lengths $x$, $y$, and $z$ is $$\mbox{Area}=\sqrt{s(s-x)(s-y)(s-z)},$$ where $s=\frac{1}{2}(x+y+z)$ is the so-called semiperimeter of the triangle.  Use Heron's formula to prove that for a fixed perimeter $P$, the triangle with the largest area is equilateral.  (Your proof should also include a justification that there is indeed a triangle with largest area.)
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[Exercise 5] (Colley 4.3.44 and 4.3.45) Let $S^{n-1}\stackrel{def}{=}\{\vec{x}\in\mathbb{R}^n\ :\ \|\vec{x}\|=1\}$ be the unit hypersphere in $\mathbb{R}^n$ centered at $\vec{0}$. 
+	\begin{itemize}
+		\item[(a)] Fix $\vec{x}_0\in S^{n-1}$ and define $f:\mathbb{R}^n\to\mathbb{R}$ by $f(\vec{y})=\vec{x}_0\cdot\vec{y}$.  Determine the maximum and minimum values of $f$ on $S^{n-1}$.
+		\item[(b)] Let $\vec{x},\vec{y}\in\mathbb{R}^n$ be any nonzero vectors.  Use part (a) to prove that $|\vec{x}\cdot\vec{y}|\leq \|\vec{x}\|\|\vec{y}\|$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+
+\newpage
+\begin{problem}[Exercise 6] Let $A\in M_{m\times n}(\mathbb{R})$, and define $f:\mathbb{R}^n\to\mathbb{R}$ by $f(\vec{x})\stackrel{def}{=} \|A\vec{x}\|$.  Use the method of Lagrange multipliers to determine the maximum value of $f$ on $S^{n-1}$ (defined in the previous problem).
+	\medskip
+	
+	(Note: Last quarter you applied the Extreme Value Theorem to determine that $f$ does indeed have a maximum value on $S^{n-1}$.  The point of this problem is to actually compute this value!)
+\end{problem}
+\begin{solution}
+	pf: Since $\|A\vec{x}\|\geq 0$ for all $\vec{x}\in\mathbb{R}$, so when $\|A\vec{x}\|$ reaches the maximum, $\|A\vec{x}\|^2$ will also reach the maximum. Let $h(\vec{x})\stackrel{def}{=}\|A\vec{x}\|^2$. And let $g(\vec{x})\stackrel{def}{=}\|\vec{x}\|^2$. Then,
+	$$\triangledown g(\vec{x})=D(g(\vec{x}))^T=\bmat{2x_1 & \cdots & 2x_n}^T=\bmat{2x_1\\\vdots\\2x_n}=2\vec{x}$$
+	We will show that $\triangledown h(\vec{x})=2A^TA\vec{x}$. Now similar to the example we did in class, fix $1\leq k\leq n$, and write $\vec{x}=x_k\vec{e}_k+\vec{v}$ where $\vec{v}=x_1\vec{e}_1+\cdots+x_{k-1}\vec{e}_{k-1}+x_{k+1}\vec{e}_{k+1}+\cdots+x_n\vec{e}_n$. Then,
+	\begin{align*}
+		h(\vec{x})&=A(x_k\vec{e}_k+\vec{v})\cdot A(x_k\vec{e}_k+\vec{v})\\
+		&=(Ax_k\vec{e}_k+A\vec{v})\cdot (Ax_k\vec{e}_k+A\vec{v})\\
+		&=Ax_k\vec{e}_k\cdot Ax_k\vec{e}_k+2Ax_k\vec{e}_k\cdot A\vec{v}+A\vec{v}\cdot A\vec{v}\\
+		&=x_k^2(A\vec{e}_k\cdot A\vec{e}_k)+2x_k(A\vec{e}_k\cdot A\vec{v})+A\vec{v}\cdot A\vec{v}\\
+	\end{align*}
+	Note that $A,\vec{v}$ do not depend on $x_k$, so that
+	\begin{align*}
+		h_{x_k}(\vec{x})&=2x_k(A\vec{e}_k\cdot A\vec{e}_k)+2(A\vec{e}_k\cdot A\vec{v})\\
+		&=A\vec{e}_k\cdot 2Ax_k\vec{e}_k+2A\vec{e}_k\cdot A\vec{v}\\
+		&=A\vec{e}_k\cdot(Ax_k\vec{e}_k+A\vec{v})\\
+		&=A\vec{e}_k\cdot 2A\vec{x}\\
+		&=\vec{e}_k\cdot (2A^TA\vec{x})
+	\end{align*}
+	Since $h_{x_k}$ is the $k^{th}$ entry of $\triangledown h(\vec{x})$ and $\vec{e}_k\cdot (2A^TA\vec{x})$ is the $k^{th}$ entry of $(2A^TA\vec{x})$, so $\triangledown h(\vec{x})=2A^TA\vec{x}$.
+	By the method of Lagrange Multipliers, a point $\vec{x}$ at which $h$ attains a constrained extreme value must satisfy, for some $\lambda\in\mathbb{R}$,
+	$$\left\{\begin{array}{rcrcrcl} \triangledown h(\vec{x})&=&\lambda\triangledown g(\vec{x})\\g(\vec{x})&=&1\end{array}\right.$$
+	So we have
+	$$2A^TA\vec{x}=2\lambda\vec{x}\Rightarrow A^TA\vec{x}=\lambda\vec{x}$$
+	Since $\|\vec{x}\|^2=1$, so $\vec{x}\neq 0$, so $\vec{x}$ is an eigenvector for $A^TA$. Then,
+	$$f(\vec{x})=\|A\vec{x}\|=\sqrt{(A\vec{x})\cdot(A\vec{x})}=\sqrt{\vec{x}^TA^TA\vec{x}}=\sqrt{\vec{x}\cdot(A^TA\vec{x})}=\sqrt{\vec{x}\cdot(\lambda\vec{x})}=\sqrt{\lambda\vec{x}\cdot\vec{x}}=\sqrt{\lambda}\|\vec{x}\|=\sqrt{\lambda}$$
+	So, the maximum value of $f$ on $S^{n-1}$ is the square root of the largest eigenvalue for $A^TA$.
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 7] Consider the problem of optimizing a $C^2$ function $f:\mathbb{R}^n\to\mathbb{R}$ subject to the constraints $$g_1(\vec{x})=c_1,\quad g_2(\vec{x})=c_2,\quad\ldots\quad,\quad g_k(\vec{x})=c_k,$$ where $g_i:\mathbb{R}^n\to\mathbb{R}$ is $C^2$. Define $L:\mathbb{R}^{k+n}\to \mathbb{R}$ by $$L(\vec{\lambda},\vec{x})\stackrel{def}{=} f(\vec{x})-\lambda_1(g_1(\vec{x})-c_1)-\cdots-\lambda_k(g_k(\vec{x})-c_k),$$ where $\vec{\lambda}=(\lambda_1,\ldots,\lambda_k)\in \mathbb{R}^k$ and $\vec{x}\in\mathbb{R}^n$.
+	\begin{itemize}
+		\item[(a)] Show that $(\vec{\lambda},\vec{x})$ is a critical point of $L$ if and only if 
+		$$\nabla f(\vec{x})=\lambda_1\nabla g_1(\vec{x})+\cdots+\lambda_k\nabla g_k(\vec{x})\quad\mbox{and}\quad g_1(\vec{x})=c_1,\ g_2(\vec{x})=c_2,\ \ldots\ ,\ g_k(\vec{x})=c_k.$$
+		\item[(b)] Compute the Hessian $D^2 L(\vec{\lambda},\vec{x})$ of $L$, and express $D^2 L(\vec{\lambda},\vec{x})$ in terms of $\vec{\lambda}$, $D^2 f(\vec{x})$, $D^2 g_i(\vec{x})$ (for $1\leq i\leq n$), and $D\vec{g}(\vec{x})$ (where $\vec{g}:\mathbb{R}^n\to\mathbb{R}^k$ is $\vec{g}(\vec{x})=(g_1(\vec{x}),\ldots,g_k(\vec{x}))$).
+		\medskip
+		
+		(Note: $D^2 L(\vec{\lambda},\vec{x})$ can be used to determine whether the local extrema of $f$ subject to the given constraints are maximums, minimums, or saddle points.  This is analogous to how we used Hessians in unconstrained optimization problems.)
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 8] Suppose that $f$ and $g$ are both integrable on the closed rectangle $R\subset\mathbb{R}^2$.  Prove that the following properties hold.
+	\begin{itemize}
+		\item[1.] $f+g$ is also integrable on $R$ and $$\iint_R (f+g)\,dA = \iint_R f\,dA + \iint_R g\,dA.$$
+		\item[2.] For $c\in \mathbb{R}$, $cf$ is also integrable on $R$ and $$\iint_R cf\, dA = c\iint_R f\,dA.$$
+		\item[3.] If $f(x,y)\leq g(x,y)$ for all $(x,y)\in R$, then $$\iint_R f\,dA \leq \iint_R g\,dA.$$
+		\item[4.] $|f|$ is also integrable on $R$ and $$\left| \iint_R f\,dA\right|\leq \iint_R |f|\,dA.$$
+	\end{itemize}
+	(Note: This is Proposition 2.7 in Section 5.2.  Your book proves part 1., so you need only prove parts 2., 3., and 4.)
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item [2.] Let $\mathscr{P}$ be a partition of $R$, and let $\mathscr{C}$ be a choice of sample points for $\mathscr{P}$. Then,
+		$$R(cf,\mathscr{P},\mathscr{C})=\sum_{i} cf(\vec{c}_i)Vol_n(R_i)=c\sum_{i} f(\vec{c}_i)Vol_n(R_i)=cR(f,\mathscr{P},\mathscr{C})$$
+		So,
+		$$\iint_R cf\, dA=\lim\limits_{\|\mathscr{P}\|\to 0} R(cf,\mathscr{P},\mathscr{C})=\lim\limits_{\|\mathscr{P}\|\to 0}cR(f,\mathscr{P},\mathscr{C})=c\lim\limits_{\|\mathscr{P}\|\to 0}R(f,\mathscr{P},\mathscr{C})=c\iint_R f\,dA$$
+		\item [3.] Let $\mathscr{P}$ be a partition of $R$, and let $\mathscr{C}$ be a choice of sample points for $\mathscr{P}$. Then,
+		$$R(f,\mathscr{P},\mathscr{C})-R(g,\mathscr{P},\mathscr{C})=R(f-g,\mathscr{P},\mathscr{C})=\sum_{i} (f(\vec{c}_i)-g(\vec{c}_i))Vol_n(R_i)$$
+		Since $f(\vec{c}_i)\leq g(\vec{c}_i)$ for all $\vec{c}_i\in\mathbb{R}^2$, and since $Vol_n(R_i)\geq 0$ for all $R_i\in R$, so
+		$$0\leq \sum_{i} (f(\vec{c}_i)-g(\vec{c}_i))Vol_n(R_i)$$
+		So,
+		\begin{align*}
+			\iint_R f\,dA - \iint_R g\,dA &= \iint_R f\,dA + \iint_R -g\,dA\\
+			&= \iint_R f-g\,dA\\
+			&= \lim\limits_{\|\mathscr{P}\|\to 0} R(f-g,\mathscr{P},\mathscr{C})\\
+			&\leq 0
+		\end{align*}
+		Thus, 
+		$$\iint_R f\,dA \leq \iint_R g\,dA.$$
+		
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 9] Define $f:\mathbb{R}^2\to\mathbb{R}$ by $$f(x,y)\stackrel{def}{=}\begin{cases} 10-x^2-y^2 & \mbox{if}\ \|(x,y)\|\leq 2,\\ x^2+y^2 & \mbox{if}\ \|(x,y)\|>2.\end{cases}$$  Show that $f$ is integrable over every rectangle of the form $[-a,a]\times[-b,b]$ centered at the origin in $\mathbb{R}^2$.
+\end{problem}
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}[Exercise 10] Show that every finite subset of $\mathbb{R}^n$ has measure zero.
+\end{problem}
+\begin{solution}
+	
+	\end{solution}
+
+\end{document}
