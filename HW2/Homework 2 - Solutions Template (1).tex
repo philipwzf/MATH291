@@ -1,0 +1,151 @@
+\documentclass[11pt,letterpaper,cm]{nupset}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm,amscd,graphicx,wasysym,enumerate}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\mb}[1]{\boldsymbol{#1}}
+\newcommand{\bvec}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% info for header block in upper right hand corner
+\name{Solutions}
+\class{Math 291-3}
+\assignment{Homework 2}
+\duedate{April 15, 2022}
+
+\begin{document}
+
+\begin{problem}[Exercise 1] Let $A\subseteq B\subseteq\mathbb{R}^n$, and assume that $B$ has measure zero.  Prove that $A$ has measure zero.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 2] Suppose that $B$ is a box in $\mathbb{R}^3$ and let $B_1$, $B_2$ be the boxes obtained by cutting $B$ with a plane parallel to the $xy$-plane.  If $f:B\to\mathbb{R}$ is integrable, show that $f_1:B_1\to\mathbb{R}$ ($f_1(\vec{x})\stackrel{def}{=}f(\vec{x})$) and $f_2:B_2\to\mathbb{R}$ ($f_2(\vec{x})\stackrel{def}{=}f(\vec{x})$) are each integrable and that $$\iiint_B f\,dV =\iiint_{B_1} f\,dV+\iiint_{B_2} f\,dV.$$
+	You may use the result of Exercise 1 without proof.
+	\medskip
+	
+	(Note: It is not necessary for the plane that cuts $B$ to be horizontal; any plane will do.  This is the analog of the fact in single-variable calculus that $\displaystyle\int_a^b f(x)\,dx = \int_a^c f(x)\,dx+\int_c^b f(x)\,dx$ for any $c$ between $a$ and $b$, provided that $f$ is integrable on $[a,b]$.  This exercise generalizes to $\mathbb{R}^n$ and for more general regions of integration.)
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 3] Let $B=[1,3]\times[2,5]\times[5,8]$, let $g:B\to\mathbb{R}$ be any continuous function, and define $f:B\to\mathbb{R}$ by $$f(x,y,z)\stackrel{def}{=}\begin{cases} g(x,y,z) & \mbox{if}\ x^2+y^2-z^2\neq 1,\\ -10 & \mbox{if}\ x^2+y^2-z^2=1.\end{cases}$$  Show that $f$ is integrable over $B$.
+\end{problem}
+\begin{solution}
+	pf: We will first show that $A=\{(x,y,z)\mathbb{R}^3:x^2+y^2-z^2=1\}$ has measure zero. Since $x^2+y^2-z^2$ is a polynomial, it is $C^1$ on B. And since $\triangledown(x^2+y^2-z^2)=\bmat{2x\\2y\\-2z}\neq \vec{0}$ since at least one of $x,y,z$ is nonzero. So, $A$ has measure zero.\\
+	Because $g$ is continuous on $B$, so $f$ is continuous on $B$ except a set of points when $x^2+y^2-z^2=1$. Since we have shown that $A$ has measure zero, so $f$ is integrable over $B$.
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 4] Define $f:\mathbb{R}^2\to\mathbb{R}$ by $$f(x,y)\stackrel{def}{=}\begin{cases} e^{x^2+y^4} & \mbox{if}\ x^2+4y^2\neq 4,\\ x+y & \mbox{if}\ x^2+4y^4=4,\end{cases}$$ which is integrable over $[1,2]\times [0,1]$.  Show that $f$ satisfies the hypotheses of Fubini's Theorem on $[1,2]\times[0,1]$.  What does the conclusion of Fubini's Theorem tell us in this case?
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 5] (Colley 5.2.41) 
+	The point of this problem is to show that the notion of a multiple integral (i.e. the integral of a function over a box in $\mathbb{R}^n$, defined as a limit of Riemann sums) is different than the notion of an iterated integral (i.e. repeatedly computing single-variable integrals of a function, one variable at a time).  In particular, this problem shows that the conclusion of Fubini's Theorem---that a multiple integral can be computed as an iterated integral under some circumstances---is nontrivial.  To do this, we will investigate a function $f:\mathbb{R}^2\to\mathbb{R}$ such that $f$ is not integrable over a box $B=[0,1]\times[0,2]$ (in the sense that the double integral $\iint_B f\ dA$, which is defined as a limit of Riemann sums, fails to exist), but that nevertheless the iterated integral $\int_0^1\int_0^2 f(x,y)\,dy\, dx$ can indeed be computed.
+	\medskip
+	
+	Define $f:\mathbb{R}^2\to\mathbb{R}$ by $$f(x,y)\stackrel{def}{=}\begin{cases} 1 & \mbox{if}\ x\ \mbox{is rational},\\ 0 & \mbox{if}\ x\ \mbox{is irrational and } y\leq 1,\\ 2 & \mbox{if}\ x\ \mbox{is irrational and } y> 1.\end{cases}$$
+	\begin{itemize}
+		\item[(a)] Show that $\displaystyle\int_0^2 f(x,y)\,dy$ does not depend on whether $x$ is rational or irrational.
+		\item[(b)] Using (a), show that the iterated integral $\displaystyle\int_0^1 \int_0^2 f(x,y)\,dy\,dx$ exists and find its value.
+		\item[(c)] Let $B=[0,1]\times[0,2]$. For a partition $\mathcal{P}$ of $B$, make the choice of sample points $\mathcal{C}$ such that each sample point $\vec{c}_i$ has a rational $x$-coordinate.  If we always choose the sample points in this way, what should be $\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})$?
+		\item[(d)] For a partition $\mathcal{P}$ of $B$, make the choice of sample points $\mathcal{C}$ such that each sample point $\vec{c}_i=(x_i^\ast,y_i^\ast)$ satisfies that $x_i^\ast$ is rational if $y_i^\ast\leq 1$ and $x_i^\ast$ is irrational if $y_i^\ast>1$.  If we always choose the sample points in this way, what should be $\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})$? 
+		
+		(Suggestion: To make the reasoning easier, you can assume that each small box $B_i$ in the partition $\mathcal{P}$ of $B$ always satisfies $B_i\subseteq [0,1]\times[0,1]$ or $B_i\subseteq[0,1]\times[1,2]$.)
+		\item[(e)] Using parts (c) and (d), conclude that $\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})$ does not exist, and therefore that the double integral $\iint_B f(x,y)\,dA$ does not exist. Thus, we see that multiple integrals and iterated integrals are actually different notions.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)] Suppose $x$ is rational. Then
+		$$\int_0^2 f(x,y)\,dy=\int_0^2 1\,dy=[y]_0^2=2-0=2$$
+		Now suppose $x$ is irrational. Then,
+		$$\int_0^2 f(x,y)\,dy=\int_0^1 0\,dy+\int_1^2 2\,dy=0+[2y]_1^2=4-2=2$$
+		\item[(b)] Since we know that for all $x\in\mathbb{R}$, $\int_0^2 f(x,y)\,dy=2$. Then,
+		$$\int_0^1\int_0^2 f(x,y)\,dy\,dx=\int_0^1 2\,dx=[2x]_0^1=2-0=2$$
+		\item[(c)] Let $\mathcal{P}=B_1,\ldots,B_n$ be a partition of $B$. For each $1\leq i\leq n$, let $\vec{c}_i$ has a rational x-coordinate. Then, $f(\vec{c}_i)=1$ for all $i$. Then,
+		$$\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})=\sum_{i\in B} \vec{c}_iVol(B_i)=\sum_{i\in B}Vol(B_i)=Vol(B)=1\times 2=2$$
+		\item[(d)] Let $\mathcal{P}=B_1,\ldots,B_n$ be a partition of $B$. For each $1\leq i\leq n$, let $\vec{c}_i$ has a rational x-coordinate if $B_i\subseteq [0,1]\times[0,1]$ and let let $\vec{c}_i$ has an irrational x-coordinate if $B_i\subseteq[0,1]\times[1,2]$. Then, $f(\vec{c}_i)=1$ for all $i$. Then,
+		$$\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})=\sum_{i\in B} \vec{c}_iVol(B_i)=\sum_{i\in B}=1\times Vol([0,1]\times[0,1])+2\times Vol([0,1]\times[1,2])=3$$
+		\item[(e)] Since by choosing two particular set of sample points, we have shown that $2=\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})=3$, contradiction! So, $\lim\limits_{\|\mathcal{P}\|\to 0} R(f,\mathcal{P},\mathcal{C})$ does not exist. Thus, $\iint_B f(x,y)\,dA$ does not exist.
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 6] (Colley 5.2.18 and 5.2.22)  This problem has two parts.
+	\begin{itemize}
+		\item[(a)] Evaluate $\displaystyle\iint_D xy\,dA(x,y)$, where $D$ is the region bounded by $x=y^3$ and $y=x^2$.
+		\item[(b)] Evaluate $\displaystyle\iint_D (x^2+y^2)\,dA(x,y)$, where $D$ is the region in the first quadrant bounded by $y=x$, $y=3x$ and $xy=3$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 7] (Colley 5.2.34) Let $D$ be the region in $\mathbb{R}^2$ with $y\geq 0$ that is bounded by $x^2+y^2=9$ and the line $y=0$. Without resorting to any explicit calculation of an iterated integral, determine, with explanation, the value of $\displaystyle \iint_D (2x^3-y^4\sin(x)-2)\,dA(x,y)$.
+\end{problem}
+\begin{solution}
+	Since $2x^3$ and $y^4sin(x)$ are symmetric around the origin, so they will cancel out each other on the regions to the left of the origin and to the right of the origin. And since the region we are integrating over is also symmetric around the origin, so the first two parts will be zero after integration. So, $$ \iint_D (2x^3-y^4\sin(x)-2)\,dA(x,y)=\iint_D-2\,dA(x,y)=-2\iint_D 1\,dA(x,y)$$
+	This integral is the volume of the half disk bounded by the equation $x^2+y^2=9$. This disk has radius 3, so 
+	$$\iint_D (2x^3-y^4\sin(x)-2)\,dA(x,y)=-2\iint_D 1\,dA(x,y)=-2\frac{\pi 3^2}{2}=-9\pi$$
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 8] (Colley 5.3.6 and 5.3.8) For each of the following integrals: sketch the region of integration, reverse the order or integration, and evaluate both iterated integrals. 
+	\begin{itemize}
+		\item[(a)] $\displaystyle\int_0^3 \int_1^{e^x} 2\,dy\,dx$
+		\item[(b)] $\displaystyle\int_0^{\pi/2}\int_0^{\cos(x)}\sin(x)\,dy\,dx$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 9] (Colley 5.3.10 and 5.3.11 and 5.3.12 and 5.3.13) When you reverse the order of integration in parts (a) and (b), you should obtains a sum of iterated integrals. Make the reversals and evaluate.  In (c) and (d), rewrite the given sum of iterated integrals as a single iterated integral by reversing the order or integration, and then evaluate.
+	\begin{itemize}
+		\item[(a)] $\displaystyle \int_{-2}^1 \int_{x^2-2}^{-x} (x-y)\,dy\,dx$
+		\item[(b)] $\displaystyle \int_{-1}^4 \int_{y-4}^{4y-y^2} (y+1)\,dx\,dy$
+		\item[(c)] $\displaystyle \int_0^1 \int_0^x \sin(x)\,dy\,dx + \int_1^2\int_0^{2-x} \sin(x)\,dy\,dx$
+		\item[(d)] $\displaystyle \int_0^8 \int_0^{\sqrt{y/3}} y\,dx\,dy+\int_8^{12}\int_{\sqrt{y-8}}^{\sqrt{y/3}} y\,dx\,dy$
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+		\item[(c)]
+		\item[(d)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 10] (Colley 5.3.14 and 5.3.18) Evaluate each of the following iterated integrals.
+	\begin{itemize}
+		\item[(a)] $\displaystyle\int_0^1 \int_{3y}^3 \cos(x^2)\,dx\,dy$
+		\item[(b)] $\displaystyle\int_0^2 \int_{y/2}^1 e^{-x^2}\,dx\,dy$
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+
+\end{document}

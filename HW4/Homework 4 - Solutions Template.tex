@@ -1,0 +1,163 @@
+\documentclass[11pt,letterpaper,cm]{nupset}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm,amscd,graphicx,wasysym,enumerate}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\mb}[1]{\boldsymbol{#1}}
+\newcommand{\bvec}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% info for header block in upper right hand corner
+\name{Solutions}
+\class{Math 291-3}
+\assignment{Homework 4}
+\duedate{April 29, 2022}
+
+\begin{document}
+
+
+\begin{problem}[Exercise 1]  (Colley 5.5.32 and 5.5.36) Determine the value of each of the following integrals, where $W$ is as descirbed.
+	\begin{itemize}
+		\item[(a)] $\displaystyle\iiint_W \frac{z}{\sqrt{x^2+y^2}}\,dV(x,y,z)$, where $W$ is the solid region bounded below by the plane $z=12$, below by the paraboloid $z=2x^2+2y^2-6$, and lies outside the cylinder $x^2+y^2=1$.
+		\item[(b)] $\displaystyle\iiint_W (x+y+z)\,dV(x,y,z),$ where $W$ is the solid region in the first octant between the spheres $x^2+y^2+z^2=a^2$ and $x^2+y^2+z^2=b^2$, where $0 < a < b$.
+		\medskip
+		
+		(If you set this up directly in terms of spherical coordinates, you'll get an integral which involves a lot of messy computation, and which will require some not-so-obvious trig identity. Perhaps try to find a way to cut down on the amount of computation required.)
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 2] (Colley 5.5.29 and 5.5.37, altered)
+	\begin{itemize}
+		\item[(a)] Evaluate
+		\[ \int_{-1}^1\int_{-\sqrt{4-4y^2}}^{\sqrt{4-4y^2}}\int_0^{4-x^2-4y^2} e^{x^2+4y^2+z}\,dz\,dx\,dy \]
+		by using cylindrical-like coordinates.
+		\item[(b)] Determine the value of
+		\[ \iiint_W z^2\,dV(x,y,z) \]
+		where $W$ is the solid region lying above the cone $z=\sqrt{3x^2+3y^2}$ and inside the sphere $x^2+y^2+z^2=6z$. In addition (not in the book), determine the value of this integral if $W$ is the region lying above the elliptic cone $z = \sqrt{3x^2+12y^2}$ and inside the ellipsoid $x^2+4y^2+z^2 = 6z$ instead.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+\begin{itemize}
+	\item[(a)]
+	\item[(b)]
+\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 3] (Colley 5.5.42) Find the volume of the intersection of the three solid cylinders
+	\[ x^2+y^2 \le a^2, \quad x^2+z^2 \le a^2, \quad y^2+z^2 \le a^2. \]
+	(Hint: First draw a careful sketch, then note that, by symmetry, it suffices to calculate the volume of a portion of the intersection.)
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 4] For now, take the following fact for granted: if $f: \mathbb{R}^n \to \mathbb{R}$ continuous and $\vec{x}_0 \in \mathbb{R}^n$, then
+	\[ \lim_{r \to 0^+} \frac1{{\rm Vol}_n(B_r(\vec{x}_0))} \int_{B_r(\vec{x}_0)} f(\vec{x})\,dV_n(\vec{x}) = f(\vec{x}_0). \]
+	In the solutions I'll prove this result.
+	
+	Suppose that $T: \mathbb{R}^n \to \mathbb{R}^n$ is $C^1$, injective, and that $DT(\vec{x})$ is invertible at every $\vec{x}\in\mathbb{R}^n$. Show that for each $\vec{x}_0 \in \mathbb{R}^n$,
+	\[ \lim_{r \to 0^+} \frac{{\rm Vol}_n(T(B_r(\vec{x}_0)))}{{\rm Vol}_n(B_r(\vec{x}_0))} = |\det(DT(\vec{x}_0))|. \]
+	(This emphasizes the ``infinitesimal expansion factor'' interpretation of $|\det(DT(\vec{x}_0)|$, since it says that the ratio between the volume of the image of a ball under $T$ and the volume of that ball itself for very small radii is essentially $|\det(DT(\vec{x}_0)|$.) 
+	\medskip
+	
+	Hint: Express the numerator of the limit as an integral and use a change of variables.
+\end{problem}
+\begin{solution}
+	pf: Define $f(\vec{u})=1$ for all $\vec{u}\in T(B_r(\vec{x}))$. Then, because $DT(\vec{x})$ is invertible, $T$ is injective, and $T$ is $C^1$. Since $f$ is a constant function, so it is integrable on $T(D)$. Then, by the change of variable theorem,
+	\begin{align*}
+		\lim_{r \to 0^+} \frac{{\rm Vol}_n(T(B_r(\vec{x}_0)))}{{\rm Vol}_n(B_r(\vec{x}_0))}&=\lim_{r \to 0^+} \frac{1}{{\rm Vol}_n(B_r(\vec{x}_0))}\int_{T(B_r(\vec{x_0}))} f(\vec{u})\,dV_n\vec{u}\\
+		&=\lim_{r \to 0^+} \frac{1}{{\rm Vol}_n(B_r(\vec{x}_0))}\int_{B_r(\vec{x_0})} f(T(\vec{x}))|det(DT(\vec{x}_0))|\,dV_n\vec{x}\\
+		&=|det(DT(\vec{x}_0))|\lim_{r \to 0^+} \frac{1}{{\rm Vol}_n(B_r(\vec{x}_0))}\int_{B_r(\vec{x_0})} f(T(\vec{x}))\,dV_n\vec{x}\\
+		&=|det(DT(\vec{x}_0))|f(T(\vec{x_0}))\\
+		&=|det(DT(\vec{x}_0))|\times 1\\
+		&=|det(DT(\vec{x}_0))|
+	\end{align*}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 5] Let $C$ be a smooth curve in $\mathbb{R}^n$ with parametrization $\vec{x}: [a,b] \to \mathbb{R}^n$. Show that $C$ lies on a hypersphere (i.e. the set of points at a fixed distance away from the origin) if, and only if, $\vec{x}(t)$ and $\vec{x}\,'(t)$ are orthogonal for every $t \in [a,b]$. 
+	\medskip
+	
+	Hint: To say that $C$ lies on a hypersphere is to say that $\|\vec{x}(t)\|$ equals the same value for all $t$, which is the same as saying that $\|\vec{x}(t)\|^2$ is constant in $t$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 6] (Colley 3.1.35) Let $\vec{x}(t)$ be a path of class $C^1$ that does not pass through the origin in $\mathbb{R}^3$. Suppose $\vec{x}(t_0)$ is a point on the image of $\vec{x}$ closest to the origin and $\vec{x}\,'(t_0) \ne \vec{0}$. Show that $\vec{x}(t_0)$ is orthogonal to $\vec{x}\,'(t_0)$.
+\end{problem}
+\begin{solution}
+	pf: Define $f(t)=\|\vec{x}(t)\|^2=\vec{x}(t)\cdot\vec{x}(t)$. Since $\vec{x}(t_0)$ is the point on the image of $\vec{x}$ closest to the origin, $\|\vec{x}(t)\|$ is the smallest when $t=t_0$. Then, $\|\vec{x}(t)\|^2$ is also the smallest when $t=t_0$. Since $f(t)$ is continuous, and thus differentiable, so $t_0$ is a critical point for $f$ such that $f\,'(t_0)=0$. Then,
+	$$0=f\,'(t_0)=(\vec{x}(t_0)\cdot\vec{x}(t_0))\,'=\vec{x}\,'(t_0)\cdot\vec{x}(t_0)+\vec{x}(t_0)\cdot\vec{x}\,'(t_0)=2\vec{x}\,'(t_0)\cdot\vec{x}(t_0)$$
+	Since both $\vec{x}(t_0)$ and $\vec{x}\,'(t_0)$ does not equal to zero, so $\vec{x}(t_0)$ and $\vec{x}\,'(t_0)$ is orthogonal. 
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 7] (Colley 3.2.14) Consider the path $\vec{x}(t)=(e^{-t}\cos (t),e^{-t}\sin (t))$.
+	\begin{itemize}
+		\item[(a)] Argue that the path spirals toward the origin as $t \to +\infty$.
+		\item[(b)] Show that, for any $a$, the improper integral
+		\[ \int_a^\infty \|\vec{x}'(t)\|\,dt \]
+		converges.
+		\item[(c)] Interpret what the result in part (b) says about the path $\vec{x}$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+		\item[(c)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 8] (Colley 3.2.15) Suppose that a curve is given in polar coordinates by an equation of the form $r=f(\theta)$, where $f$ is $C^1$. Derive the formula
+	\[ L = \int_\alpha^\beta \sqrt{f'(\theta)^2+f(\theta)^2}\,d\theta \]
+	for the length $L$ of the curve between the points $(f(\alpha),\alpha)$ and $(f(\beta),\beta)$ given in polar coordinates.
+\end{problem}
+\begin{solution}
+	pf: Define $\vec{g}(\theta)=(f(\theta)cos(\theta),f(\theta)sin(\theta))$. Then, since $f$ is $C^1$,
+	\begin{align*}
+		L&=\int_\alpha^\beta \|\vec{g}\,'(\theta)\|\,d\theta\\
+		&=\int_\alpha^\beta \sqrt{(f\,'(\theta)cos(\theta)-f(\theta)sin(\theta))^2+(f\,'(\theta)sin(\theta)+f(\theta)cos(\theta))^2}\,d\theta\\
+		&=\int_\alpha^\beta \sqrt{(f\,'(\theta)cos(\theta))^2+(f(\theta)sin(\theta))^2+(f\,'(\theta)sin(\theta))^2+(f(\theta)cos(\theta))^2}\,d\theta\\
+		&=\int_\alpha^\beta \sqrt{f\,'(\theta)^2+f(\theta)^2}\,d\theta
+	\end{align*}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 9] Suppose $C$ is a smooth $C^1$ curve in $\mathbb{R}^n$ with two parametrizations
+	\[ \vec{x}: [a,b] \to \mathbb{R}^n \quad\text{and}\quad \vec{y}: [c,d] \to \mathbb{R}^n \]
+	related by $\vec{y} = \vec{x} \circ \tau$ for some $C^1$, bijective map $\tau: [c,d] \to [a,b]$ with $\tau'(u)\neq 0$ for every $u\in [c,d]$. Show that the tangent vector at a point along $C$ determined by $\vec{x}$ points in the same direction as the one determined by $\vec{y}$ if, and only if, $\tau'(u)$ is positive for all $u \in [c,d]$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 10] Suppose $C$ is a smooth curve in $\mathbb{R}^n$ with parametrization $\vec{x}: [a,b] \to \mathbb{R}^n$, and that $f: C \to \mathbb{R}$ is a continuous function on $C$. The \textbf{scalar line integral} of $f$ over $C$ is defined to be:
+	\[ \int_C f\,ds \stackrel{def}{=} \int_a^b f(\vec{x}(t))\|\vec{x}\,'(t)\|\,dt. \]
+	Show that this definition is independent of parametrization. To be clear, this means that if $\vec{y}: [c,d] \to \mathbb{R}^n$ is another parametrization of $C$ which is related to $\vec{x}$ via
+	\[ \vec{y} = \vec{x} \circ \tau \]
+	for some $C^1$, bijective map $\tau: [c,d] \to [a,b]$ with $\tau'(u)\neq 0$ for every $u\in [c,d]$, you want to show that the integral above is the same as the one obtained by using $\vec{y}$ instead of $\vec{x}$.
+\end{problem}
+\begin{solution}
+	Suppose $\vec{y}:[c,d]\to \mathbb{R}$ is another parametrization of $C$ which is related to $\vec{x}$ such that $\vec{y}(u)=\vec{x}\circ\tau(u)$ for all $u\in [c,d]$. Since we know that $f$ is integrable, and both $\vec{x},\vec{y}$ are parametrization for $f$, and $\tau$ is a bijective map from $\vec{y}$ to $\vec{x}$. Then, by the change of variable theorem,
+	\begin{align*}
+		\int_c^d f(\vec{y}(u))|\vec{y}\,'(u)|\,du&=\int_c^d f(\vec{x}\circ\tau(u))\|\vec{x}\,'(\tau(u))\tau\,'(u)\|\,du\\
+		&=\int_c^d f(\vec{x}(\tau(u)))\|\vec{x}\,'(\tau(u))\|\|\tau\,'(u)\|\,du\\
+		&=\int_a^b f(\vec{x}(t))\|\vec{x}\,'(t)\|\,dt
+	\end{align*}
+\end{solution}
+
+\end{document}

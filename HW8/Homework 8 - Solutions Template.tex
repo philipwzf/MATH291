@@ -1,0 +1,186 @@
+\documentclass[11pt,letterpaper,cm]{nupset}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm,amscd,graphicx,wasysym,enumerate}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\mb}[1]{\boldsymbol{#1}}
+\newcommand{\bvec}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% info for header block in upper right hand corner
+\name{Solutions}
+\class{Math 291-3}
+\assignment{Homework 8}
+\duedate{May 31, 2022}
+
+\begin{document}
+
+\begin{problem}[Exercise 1] Compute
+	$$\int_C (y^2x+x^2+yx^5)\,dx+(x^2y+x-\sin(y)(y+1)^{y\sin(y)+y^2+3})\,dy$$
+	where $C$ is the top half of the unit circle oriented clockwise. To be clear, $C$ is NOT closed.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 2] Let $D$ be a compact region in $\mathbb{R}^2$ to which Green's Theorem applies. Suppose $u$ is $C^2$ and \textbf{harmonic} on $D$, meaning that $u_{xx}+u_{yy} = 0$ on $D$.  If $u(x,y) = 0$ for all $(x,y) \in \partial D$, show that $u = 0$ on all of $D$.
+	\medskip
+	
+	(Thus if a harmonic function is zero on the boundary of a region, then it must be zero throughout the entire region. This implies that the values of a harmonic function throughout a region are fully determined by its values on the boundary alone, which is a key property of harmonic functions.)
+	\medskip
+	
+	Hint: Apply Green's Theorem to the vector field $\vec{F} = -uu_y\vec{i}+uu_x\vec{j}$.
+\end{problem}
+\begin{solution}
+	pf: Define $\vec{F}=-uu_y\vec{i}+uu_x\vec{j}$. Since $u$ is $C^2$ on $D$, then we can apply Green's Theorem on $D$ to get
+	$$0=\oint_{\partial D} \vec{F}\cdot d\vec{s}=\iint_{D}curl (\vec{F})\,dA(x,t)=\iint_D u_x^2+uu_{xx}+u_y^2+uu_{yy}\,dA(x,y)=\iint_D u_x^2+u_y^2\,dA(x,y)$$
+	Since $u_x^2,u_y^2\geq 0$ for all $(x,y)\in \mathbb{R}^2$, so 
+	$$\iint_D u_x^2\,dA(x,y),\iint_D u_y^2\,dA(x,y)\geq 0$$
+	And since $0=\iint_D u_x^2+u_y^2\,dA(x,y)$, So
+	$$\iint_D u_x^2\,dA(x,y)=\iint_D u_y^2\,dA(x,y)=0$$
+	Now we wanna show that $u_x^2=u_y^2=0$ for all $(x,y)\in D$. Without loss of generality, we will show that $u_x^2=0$. If $u_x^2=0$, then we are done. So suppose there exists $(x_0,y_0)\in D$ such that $u_x^2(x_0,y_0)=c>0$. Since $u_x$ is continous, then there exists $r>0$, such that for all $B_r(x_0,y_0)\subseteq D$ and for all $\vec{x}\in B_r(x_0,y_0)$, $u_x^2(\vec{x})>0$. Then,
+	$$\iint_D u_x^2\,dA(x,y)\geq \iint_{B_r(x_0,y_0)}u_x^2\,dA(x,y)>0$$
+	Contradiction! Thus $u_x^2(x,y)=0$ for all $(x,y)\in D$. We can get $u_y^2(x,y)=0$ for all $(x,y)\in D$ using the exact same argument.
+	Then, $u_x=u_y=0$. So $u$ is a constant function in $D$. Since $u(x,y)=0$ for $(x,y)\in \partial D$, then $u(x,y)=0$ for $(x,y)\in D$. 
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 3] (Colley 7.2.3, 7.2.24) This problem has two unrelated parts.
+	\begin{itemize}
+		\item[(a)] Find the flux of $\vec{F} = x\vec{i}+y\vec{j}+z\vec{k}$ across the surface $S$ consisting of the triangular portion of the plane $2x-2y+z=2$ that is cut out by the coordinate planes. Here assume that $S$ is oriented with upward-pointing normal vectors.
+		\item[(b)] Let $F=2x\vec{i}+2y\vec{j}+z^2\vec{k}$. Find $\displaystyle \iint_S \vec{F}\cdot d\vec{S}$, where $S$ is the portion of the cone $x^2+y^2=z^2$ between the planes $z=-2$ and $z=1$, oriented with outward-pointing normal vectors.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+	\item[(a)] 
+	\item[(b)] 
+\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 4] (Colley 7.3.11, 7.3.13b) This problem has two unrelated parts. 
+	\begin{itemize}
+		\item[(a)] Let $S$ be the surface defined by $y=10-x^2-z^2$ with $y \ge 1$, oriented with normals pointing in the positive $y$-direction. Let $$\vec{F} = (2xyz+5z)\,\vec{i}+e^x\cos(yz)\,\vec{j}+x^2y\,\vec{k}.$$
+		Determine $$\iint_S {\rm curl}\vec{F} \cdot d\vec{S}.$$
+		\item[(b)] Evaluate $$\oint_C (y^3+\cos(x))\,dx+(\sin(y)+z^2)\,dy + x\,dz$$
+		where $C$ is the smooth closed curve parametrized (and oriented by) the path $\vec{x}(t) = (\cos(t),\sin(t),\sin(2t)), 0 \le t \le 2\pi$. Note that this path lies on the surface $z=2xy$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)] 
+		\item[(b)] 
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 5] (Colley 7.3.12) Let $S$ be the surface defined as $z=4-4x^2-y^2$ with $z \ge 0$ and oriented with normal vectors that have a nonnegative $\vec{k}$-component. Let $\vec{F}(x,y,z) = x^3\,\vec{i}+e^{y^2}\,\vec{j}+ze^{xy}\,\vec{k}$. Find $\displaystyle\iint_S \nabla \times \vec{F} \cdot d\vec{S}$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 6] The goal of this problem is to prove a special case of Stokes' Theorem. Suppose $S$ is the portion of the graph of $z=f(x,y)$, where $f$ is $C^2$, for $(x,y)$ in a compact region $D$ in the $xy$-plane with boundary consisting of a single smooth curve. Thus $S$ is parametrized by
+	$$\vec{X}(x,y) = (x,y,f(x,y)),\ (x,y) \in D.$$
+	Give $S$ the upward orientation and $\partial S$ the induced orientation. Let $\vec{x}(t) = (x(t),y(t)),\ a \le t \le b$ be parametric equations for $\partial D$ and suppose that $\partial S$ is parametrized by
+	$$(x(t),y(t),f(x(t),y(t))),\ a \le t \le b.$$
+	Let $\vec{F}$ be a $C^1$ vector field of the form $\vec{F} = (P,Q,R)$.
+	\begin{itemize}
+		\item[(a)] Show that $$\displaystyle\int_{\partial S} (P,Q,R) \cdot d\vec{s}= \int_{\partial D} (P(\vec{X}(x,y))+R(\vec{X}(x,y))f_x(x,y)\,,\, Q(\vec{X}(x,y))+R(\vec{X}(x,y))f_y(x,y))\cdot d\vec{s}$$
+		\item[(b)] Use Green's Theorem to replace the right-hand-side of part (a) with an equivalent double integral over $D$. This will involve the use of the chain rule.
+		\item[(c)] Use the given parametrization for $S$ to show that the double integral over $D$ produced in part (b) is equal to $$\iint_S (R_y-Q_z,P_z-R_x,Q_x-P_y)\cdot d\vec{S}.$$
+		The vector field $(R_y-Q_z,P_z-R_x,Q_x-P_y)$ is the curl of $(P,Q,R)$, so we have shown that Stokes' Theorem holds in this special case.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+		\begin{itemize}
+		\item[(a)] Based on the parametrization of $\partial S$ and $\partial D$, we have
+			\begin{align*}
+				\int_{\partial S} (P,Q,R) \cdot d\vec{s}&=\int_a^b \bmat{P(x(t),y(t),f(x(t),y(t)))\\Q(x(t),y(t),f(x(t),y(t)))\\R(x(t),y(t),f(x(t),y(t)))}\cdot\bmat{x\, '(t)\\y\, '(t)\\f_x(x(t),y(t))x\, '(t)+f_y(x(t),y(t))y\, '(t)}\,dt\\
+				&=\int_a^b (P+Rf_x(x(t),y(t)))x\,'(t)+(Q+Rf_y(x(t),y(t)))y\,'(t)\,dt\\
+				&=\int_a^b \bmat{P+Rf_x(x(t),y(t))\\Q+Rf_y(x(t),y(t))}\cdot\bmat{x\,'(t)\\y\,'(t)}\,dt\\
+				&=\int_{\partial D} (P(\vec{X}(x,y))+R(\vec{X}(x,y))f_x(x,y)\,,\, Q(\vec{X}(x,y))+R(\vec{X}(x,y))f_y(x,y))\cdot d\vec{s}
+			\end{align*}
+		\item[(b)] By Green's Theorem, and Clairaut's Theorem, we have
+			\begin{align*}
+				RHS &= \int_{\partial D} (P(\vec{X}(x,y))+R(\vec{X}(x,y))f_x(x,y)\,,\, Q(\vec{X}(x,y))+R(\vec{X}(x,y))f_y(x,y))\cdot d\vec{s}\\
+				&= \iint_D (Q(\vec{X}(x,y))+R(\vec{X}(x,y))f_y(x,y))_x-(P(\vec{X}(x,y))+R(\vec{X}(x,y))f_x(x,y))_y\, dA(x,t)\\
+				&=\iint_D Q_x(\vec{X}(x,y))+Q_z(\vec{X}(x,y))f_x(x,y)+R_x(\vec{X}(x,y))f_y(x,y)+R(\vec{X}(x,y))f_{yx}(x,y)\\
+				&\, -P_y(\vec{X}(x,y))-P_z(\vec{X}(x,y))f_y(x,y)-R_y(\vec{X}(x,y))f_x(x,y)-R(\vec{X}(x,y))f_{xy}(x,y)\, dA(x,y)\\
+				&=\iint_D Q_x(\vec{X}(x,y))+Q_z(\vec{X}(x,y))f_x(x,y)+R_x(\vec{X}(x,y))f_y(x,y)\\
+				&-P_y(\vec{X}(x,y))-P_z(\vec{X}(x,y))f_y(x,y)-R_y(\vec{X}(x,y))f_x(x,y)\, dA(x,y)\\
+			\end{align*}
+		\item[(c)] Based on the parametrization of S, we can first determine that
+		$$N_{\vec{X}}(x,y)=\bmat{1\\0\\f_x(x,y)}\times\bmat{0\\1\\f_y(x,y)}=\bmat{-f_x(x,y)\\-f_y(x,y)\\1}$$
+		Then,
+		\begin{align*}
+			\iint_S (R_y-Q_z,P_z-R_x,Q_x-P_y)\cdot d\vec{S}&=\iint_D \bmat{R_y-Q_z\\P_z-R_x\\Q_x-P_y}\cdot\bmat{-f_x(x,y)\\-f_y(x,y)\\1}\,dA(x,y)\\
+			&=\iint_D -R_y(\vec{X}(x,y))f_x(x,y)+Q_z(\vec{X}(x,y))f_x(x,y)-P_z(\vec{X}(x,y))f_y(x,y)\\
+			&+R_x(\vec{X}(x,y))f_y(x,y)+Q_x(\vec{X}(x,y))-P_y(\vec{X}(x,y))\, dA(x,y)
+		\end{align*}
+		This is the same as the double integral we get from part(b).
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 7] (Colley 7.3.26) Let $\vec{n}(x,y,z)$ be a unit normal vector to a smooth surface $S$. The directional derivative of a differentiable function $f(x,y,z)$ in the direction of $\vec{n}$ is called a \textbf{normal derivative} of $f$, denoted $\frac{\partial f}{\partial n}$.  In particular, from our results on directional derivatives we have $$\frac{\partial f}{\partial n}=\nabla f\cdot \vec{n}.$$
+	
+	Suppose that $f:\mathbb{R}^3\to\mathbb{R}$ is a $C^2$ function such that for any closed, oriented smooth surface $S$,
+	$$\iint_S \frac{\partial f}{\partial n}\,dS = 0.$$
+	Prove that $f$ is \textbf{harmonic}, in the sense that $f_{xx}+f_{yy}+f_{zz}=0$ throughout $\mathbb{R}^3$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 8] (Colley 7.3.20) Use Gauss's theorem to evaluate $$\iint_S \vec{F} \cdot d\vec{S}$$
+	where $\vec{F} = ze^{x^2}\,\vec{i}+3y\,\vec{j}+(2-yz^7)\,\vec{k}$ and $S$ is the union of the five ``upper'' faces of the unit cube $[0,1] \times [0,1] \times [0,1]$, each oriented with normal vectors that point ``away" from center of the cube $(\frac{1}{2},\frac{1}{2},\frac{1}{2})$.  Note that the $z=0$ face is \emph{not} part of $S$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 9] Let $\vec{F}$ be the vector field
+	$$\vec{F} = \frac{x\,\vec{i}+y\,\vec{j}+z\,\vec{k}}{(x^2+y^2+z^2)^{3/2}}.$$
+	Show that the surface integral of $\vec{F}$ over any closed, outward-oriented, smooth $C^1$ surface in $\mathbb{R}^3$ which encloses the origin is $4\pi$. 
+	\medskip
+	
+	(Hint: Show that the integral of $\vec{F}$ over any such surface is the same as the integral of $\vec{F}$ over a small-enough outward-oriented sphere centered at the origin.)
+\end{problem}
+\begin{solution}
+	pf: Let $S$ be such surface. And let $S_1$ be the unit sphere centered at the origin with orientation pointing inward (so pointing out of the region enclosed by $S_1$ and $S$). Let the region enclosed by $S_1$ and $S$ be $D$. Then, by Gauss's theorem
+	\begin{align*}
+		\iint_S \vec{F}\cdot\,d\vec{S}&=\iint_{S\cup S_1} \vec{F}\cdot\,d\vec{S}-\iint_{S_1} \vec{F}\cdot\,d\vec{S}
+		=\iiint_D div(\vec{F})dV-\iint_{S_1} \vec{F}\cdot\,d\vec{S}
+	\end{align*}
+	We will first handle the first part.
+	\begin{align*}
+		\iiint_D div(\vec{F})dV&=3\times\frac{1}{(x^2+y^2+z^2)^{3/2}}-\frac{3x^2}{(x^2+y^2+z^2)^{5/2}}-\frac{3y^2}{(x^2+y^2+z^2)^{5/2}}-\frac{3z^2}{(x^2+y^2+z^2)^{5/2}}\\
+		&=\frac{3}{(x^2+y^2+z^2)^{3/2}}-\frac{3}{(x^2+y^2+z^2)^{3/2}}\\
+		&=0
+	\end{align*}
+	Now, for $S_1$, we will parametrize the upper half of $S_1$ (with positive z coordinate) and multiply that multiply that by 2 to get the whole sphere. by $\vec{X}(\phi,\theta)=(cos(\theta)sin(\phi),sin(\theta)sin(\phi),cos(\phi)),0\leq\phi\leq \pi,0\leq\theta\leq 2\pi$. Then,
+	$$N_{\vec{X}}(\phi,\theta)=\bmat{cos(\theta)cos(\phi)\\sin(\theta)cos(\phi)\\-sin(\phi)}\times \bmat{-sin(\theta)sin(\phi)\\cos(\theta)sin(\phi)\\0}=\bmat{cos(\theta)sin^2(\phi)\\sin(\theta)sin^2(\phi)\\sin(\phi)cos(\phi)}$$
+	Then,
+	\begin{align*}
+		\iint_{S_1} \vec{F}\cdot\,d\vec{S}&=\int_0^{\pi}\int_0^{2\pi}\bmat{cos(\theta)sin(\phi)\\sin(\theta)sin(\phi)\\cos(\phi)}\cdot\bmat{cos(\theta)sin^2(\phi)\\sin(\theta)sin^2(\phi)\\sin(\phi)cos(\phi)}\,d\theta d\phi\\
+		&=\int_0^{\pi}\int_0^{2\pi} sin(\phi)\,d\theta d\phi\\
+		&=\int_0^{\pi} 2\pi sin(\phi)\, d\phi\\
+		&=[-2\pi cos(\phi)]_0^{\pi}\\
+		&=4\pi
+	\end{align*}
+	Thus we have,
+	$$\iint_S \vec{F}\cdot\,d\vec{S}=\iiint_D div(\vec{F})dV-\iint_{S_1} \vec{F}\cdot\,d\vec{S}=0-4\pi=-4\pi$$
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 10] Prove Gauss's Theorem in the special case where $E$ is bounded by the surfaces $x=h_2(y,z)$ on the front and $x=h_1(y,z)$ on the back where $(y,z) \in D$ is the shadow of $E$ in the $yz$-plane, and $\vec{F}$ has the form $\vec{F} = P(x,y,z)\,\vec{i}$.
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\end{document}

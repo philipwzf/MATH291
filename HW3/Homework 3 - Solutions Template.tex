@@ -1,0 +1,192 @@
+\documentclass[11pt,letterpaper,cm]{nupset}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm,amscd,graphicx,wasysym,enumerate}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\mb}[1]{\boldsymbol{#1}}
+\newcommand{\bvec}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% info for header block in upper right hand corner
+\name{Solutions}
+\class{Math 291-3}
+\assignment{Homework 3}
+\duedate{April 25, 2022}
+
+\begin{document}
+
+\begin{problem}[Exercise 1] (Colley 5.4.14 and 5.4.19)  For each part, integrate the given function over the indicated region $W$.
+	\begin{itemize}
+		\item[(a)] $f(x,y,z)=z$; $W$ is the region in the first octant bounded by the cylinder $y^2+z^2=9$ and the planes $y=x$, $x=0$, and $z=0$.
+		\item[(b)] $f(x,y,z)=4x+y$; $W$ is the region bounded by $x=y^2$, $y=z$, $x=y$, and $z=0$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+\begin{itemize}
+	\item[(a)]
+	\item[(b)]
+\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 2] (Colley 5.4.25 and 5.4.27) For each iterated integral, sketch the region of integration and rewrite the integral as an equivalent iterated integral in each of the five other orders of integration.
+	\begin{itemize}
+		\item[(a)] $\displaystyle\int_{-1}^1 \int_{y^2}^1 \int_0^{1-x} f(x,y,z)\,dz\,dx\,dy$
+		\item[(b)] $\displaystyle\int_0^2 \int_0^x \int_0^y f(x,y,z)\,dz\,dy\,dx$
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 3] (Colley 5.4.29) Consider the iterated integral
+	$$\int_{-2}^2 \int_0^{\frac{1}{2}\sqrt{4-x^2}} \int_{x^2+3y^2}^{4-y^2} (x^3+y^3)\,dzdydx.$$
+	\begin{itemize}
+		\item[(a)] This integral is equal to the triple integral over a solid region $W$ in $\mathbb{R}^3$. Describe $W$.
+		\item[(b)] Set up an equivalent iterated integral by integrating first with respect to $z$, then with respect to $x$, then with respect to $y$. Do not evaluate your answer.
+		\item[(c)] Set up an equivalent iterated integral by integrating first with respect to $x$, then with respect to $z$, then with respect to $y$. Do not evaluate your answer.
+		\item[(d)] Now consider integrating first with respect to $x$, then $y$, then $z$. Set up a sum of iterated integrals that, when evaluated, give the same result. Do not evaluate your answer.
+		\item[(e)] Repeat part (d) for integration first with respect to $y$, then $z$, then $x$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+		\item[(c)]
+		\item[(d)]
+		\item[(e)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 4] (Colley 5.5.10 (Altered) and 5.5.12)
+	\begin{itemize}
+		\item[(a)] Evaluate
+		\[ \iint_D \sqrt{(x+y)(x-2y)}\,dA(x,y)\]
+		where $D$ is the region in $\mathbb{R}^2$ enclosed by the lines $y=x/2, y=0,$ and $x+y=1$.  
+		\item[(b)] Evaluate
+		\[ \iint_D \frac{(2x+y-3)^2}{(2y-x+6)^2}\,dx\,dy \]
+		where $D$ is the (filled-in) square with vertices $(0,0), (2,1), (3,-1),$ and $(1,-2)$.
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)]
+		\item[(b)]
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 5] (Colley 5.5.17 (Altered) and 5.5.27)
+	\begin{itemize}
+		\item[(a)] Exercise 5.5.17 in our book directs students to transform the following double integral into polar coordinates:
+		$$\iint_D \frac{1}{\sqrt{x^2+y^2}}\,dA(x,y)$$
+		where $D$ is the triangular region with vertices at $(0,0)$, $(3,0)$, and $(3,3)$.  This is a bad problem because the Change of Variables Theorem does not apply. Why not?
+		\item[(b)] Use polar coordinates to evaluate $\displaystyle\iint_D \frac x{\sqrt{x^2+y^2}}\,dA(x,y)$ where $D$ is the unit square $[0,1] \times [0,1]$.  Why does this integral not suffer from the same issue as the one in part (a)?
+	\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)] Because $\frac{1}{\sqrt{x^2+y^2}}$ is not bounded in this triangular area. By changing into polar coordinate, we have
+		$$\lim_{(x,y)\to(0,0)} \frac{1}{\sqrt{x^2+y^2}}=\lim_{r\to 0} \frac{1}{\sqrt{(rcos(\theta))^2+(rsin(\theta))^2}}=\lim_{r\to 0} \frac{1}{|r|}=\infty$$
+		Since $\frac{1}{\sqrt{x^2+y^2}}$ is not bounded, so it is not integrable in this region. Thus, the change of variable theorem does not apply.
+		\item[(b)] The change of variable theorem applies because $|\frac{x}{\sqrt{x^2+y^2}}|\leq 1$ is bounded. This is because $y^2\geq 0$, so
+		$$|\frac{x}{\sqrt{x^2+y^2}}|\leq|\frac{x}{\sqrt{x^2}}|=1$$
+		Since this is bounded, and it is only discontinuous at $(0,0)$, so by the Lebesgue's Criteria, this is integrable over this unit box. As for the other criteria for the change of varibale theorem, we have shown in class that the transformation to polar coordinate does satisfy the condition. So, by the change of variable theorem, since $r>0$
+		\begin{align*}
+			\iint_D \frac {x}{\sqrt{x^2+y^2}}\,dA(x,y)&=\int_0^\frac{\pi}{4}\int_0^\frac{1}{cos(\theta)} \frac {r^2cos\theta}{\sqrt{(rcos\theta)^2+(rsin\theta)^2}} \,dr\,d\theta+\int_\frac{\pi}{4}^\frac{\pi}{2}\int_0^\frac{1}{sin(\theta)} \frac {r^2cos\theta}{\sqrt{(rcos\theta)^2+(rsin\theta)^2}} \,dr\,d\theta\\
+			&=\int_0^\frac{\pi}{4}(\int_0^\frac{1}{cos(\theta)} \frac {r^2cos\theta}{\sqrt{r^2}} \,dr)\,d\theta+\int_\frac{\pi}{4}^\frac{\pi}{2}(\int_0^\frac{1}{sin(\theta)} \frac {r^2cos\theta}{\sqrt{r^2}} \,dr)\,d\theta\\
+			&=\int_0^\frac{\pi}{4}(\int_0^\frac{1}{cos(\theta)} rcos\theta \,dr)\,d\theta+\int_\frac{\pi}{4}^\frac{\pi}{2}(\int_0^\frac{1}{sin(\theta)} rcos\theta \,dr)\,d\theta\\
+			&=\int_0^\frac{\pi}{4}[\frac{r^2cos\theta}{2}]_0^\frac{1}{cos(\theta)}\,d\theta+\int_\frac{\pi}{4}^\frac{\pi}{2}[\frac{r^2cos\theta}{2}]_0^\frac{1}{sin(\theta)}\,d\theta\\
+			&=\frac{1}{2}(\int_0^\frac{\pi}{4} \frac{1}{cos(\theta)}\,d\theta+\int_\frac{\pi}{4}^\frac{\pi}{2} \frac{cos\theta}{sin^2\theta}\,d\theta)\\
+			&=\frac{1}{2}(\int_0^\frac{\pi}{4} \frac{1}{cos(\theta)}\,d\theta+\int_\frac{\pi}{4}^\frac{\pi}{2} \frac{1}{sin^2\theta}\,dsin\theta)\\
+			&=\frac{1}{2}([ln(|sec\theta+tan\theta|)]_0^\frac{\pi}{4}+[-\frac{1}{sin\theta}]_\frac{\pi}{4}^\frac{\pi}{2})\\
+			&=\frac{1}{2}(ln(|\sqrt{2}+1|)-ln(|1+0|)-1+\sqrt{2})\\
+			&=\frac{1}{2}(ln(\sqrt{2}+1)-1+\sqrt{2})
+		\end{align*}
+	\end{itemize}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 6]
+	Suppose $D$ is a elementary region in $\mathbb{R}^n$, and that $T: \mathbb{R}^n \to \mathbb{R}^n$ is an invertible affine transformation of the form $T(\vec{x}) = A\vec{x}+\vec{b}$. Show that ${\rm Vol}_n(T(D)) = |{\rm det}(A)|{\rm Vol}_n(D)$.
+\end{problem}
+\begin{solution}
+	pf: Define $f(\vec{u})=1$ for all $\vec{u}\in T(D)$. Then, because $T$ is an invertible affine transformation, it is injective, and the derivative $DT(\vec{x})=A$ is invertible. And $T$ is $C^1$. Since $f$ is a constant function, so it is integrable on $T(D)$. Then, by the change of variable theorem,
+	\begin{align*}
+		Vol_n(T(D))&=\int_{T(D)} 1\,dV_n\vec{u}\\
+		&=\int_{T(D)} f(\vec{u})\,dV_n\vec{u}\\
+		&=\int_{D} f(T(\vec{x}))|det(DT(\vec{x}))|\,dV_n\vec{x}\\
+		&=|det(A)|\int_{D} 1\,dV_n\vec{x}\\
+		&=|det(A)|Vol_n(D)
+	\end{align*}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 7] 
+	Suppose $T: \mathbb{R}^2 \to \mathbb{R}^2$ is $C^1$ and injective and that ${\rm det}(DT(\vec{x}))>0$ for all $\vec{x}$ not on the line $y=x$. Suppose that $D\subset\mathbb{R}^2$ is an elementary region, and that $f:T(D) \to \mathbb{R}$ is integrable. Show that
+\[ \iint_{T(D)} f(x,y)\,dA(x,y) = \iint_D f(x(u,v),y(u,v))\det(DT(u,v))\,dA(u,v) \]
+where $(x(u,v),y(u,v)) = T(u,v)$ denote the component functions of $T$ and give the expressions for $x,y$ in terms of $u,v$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 8]
+	Evaluate
+	\[ \iint_D \frac{2xy^3}{x^2y^2+1}\,dA(x,y) \]
+	where $D$ is the region in  the first quadrant of $\mathbb{R}^2$ bounded by $xy=1, xy=4, y=1$ and $y=2$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 9] (Colley 5.5.34)  Determine the value of $$\iiint_W \frac{1}{\sqrt{x^2+y^2+z^2}}\,dV(x,y,z)$$ where $W\subset\mathbb{R}^3$ is the region bounded by the two spheres $x^2+y^2+z^2=a^2$ and $x^2+y^2+z^2=b^2$ for $0<a<b$.
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+
+\begin{problem}[Exercise 10]
+	For $r>0$, $D_r^n$ denotes the closed ball in $\mathbb{R}^n$ of radius $R$ centered at the origin, which is the set of all points in $\mathbb{R}^n$ whose distance to the origin is less than or equal to $r$:
+	\[ D_r^n \stackrel{def}{=} \{\vec{x} \in \mathbb{R}^n\ :\  \|\vec{x}\| \leq r\}. \]
+	In other words, this is the region enclosed by the (hyper)sphere of radius $r$ in $\mathbb{R}^n$ centered at the origin. For instance, $D_1^2$ is the unit disk in $\mathbb{R}^2$ and $D_1^3$ is the $3$-dimensional unit ball in $\mathbb{R}^3$. The point of this problem is to compute ${\rm Vol}_n(D_r^n)$ in general. In class we showed that
+	\[ {\rm Vol}_1(D_r^1) = 2r \quad\text{and}\quad {\rm Vol}_2(D_r^2) = \pi r^2, \]
+	which give the $1$-volume (i.e. length) of $D_r^1 = [-r,r]$ and $2$-volume (i.e. area) of $D_r^2$, which is the disk of radius $r$ centered at the origin in $\mathbb{R}^2$.
+\begin{itemize}
+	\item[(a)] Show that ${\rm Vol}_n(D^n_r) = r^n{\rm Vol}_n(D^n_1)$. (Suggestion: First find a linear transformation that sends $D_1^n$ onto $D_r^n$.)
+	\item[(b)] The $n$-volume of $D_r^n$ is given by the $n$-dimensional integral of the constant $1$ over $D_r^n$:
+	\[ {\rm Vol}_n(D_r^n)=\int_{D_r^n} 1\,dV_n, \]
+	which we can compute using Fubini's Theorem. Denote the coordinates of $\mathbb{R}^n$ by $(x_1,\ldots,x_n)$. For $n \geq 3$, express the $n$-dimensional integral above as an iterated integral of the form:
+	\[ \int_?^?\int_?^? (\text{something})\,dx_1\,dx_2. \]
+	(To do this, think about what the ``slice'' of $D_r^n$ occurring at a fixed $(x_1,x_2)$ looks like. The ``something'' expression you come up with should involve volumes of lower dimensional balls.)
+	\item[(c)] Use polar coordinates in the $x_1x_2$-plane to compute the iterated integral above, and as a result derive the recursive relation:
+	\[ {\rm Vol}(D_r^n) = \frac{2\pi r^2}n{\rm Vol}_{n-2}(D_r^{n-2}) \text{ for } n \ge 3. \]
+	\item[(d)] Use induction to show that for $n$ even:
+	\[ {\rm Vol}_n(D_r^n) = \frac{2^{\frac n2}\pi^{\frac n2}r^n}{2\cdot4\cdot6\cdots n} \]
+	and for $n$ odd:
+	\[ {\rm Vol}_n(D_r^n) = \frac{2^{\frac{n+1}2}\pi^{\frac{n-1}2}r^n}{1\cdot3\cdot5\cdots n}. \]
+	Note that part (d) is not required to be turned in, but you can certainly do it if you like.
+\end{itemize}
+\end{problem}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)] Define $T(\vec{x})=A\vec{x}$ for all $\vec{x}\in D_1^n$ where $A = rI_n$. Then $T$ is an invertible affine transformation. Note that for $\vec{x}\in D_1^n,\ x_1^2+\cdots+x_n^2\leq 1$ Then, 
+		$$T(\vec{x})=(rx_1)^2+\cdots+(rx_n)^2=r^2(x_1^2+\cdots+x_n^2)\leq r^2$$
+		This is exactly the n-dimensional ball $D_r^n$. So the image of $D_1^n$ over tha function $T$ is $D_r^n$. Since $A$ is diagonal, and because $r>0$, so $|det(A)|=r^n$. By exercise 6, we know that 
+		$$Vol_n(D_r^n)=Vol_n(T(D_1^n))=|det(A)|Vol_n(D_1^n)=r^nVol_n(D_1^n)$$
+		\item[(b)]
+		\item[(c)]
+		\item[(d)]
+	\end{itemize}
+\end{solution}
+
+\end{document}
